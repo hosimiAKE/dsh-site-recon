@@ -1,0 +1,111 @@
+URL: https://modelcontextprotocol.io/specification/2026-07-28/server/tools
+TITLE: Tools - Model Context Protocol
+FETCHED: 2026-10-28T09:19:01.396Z
+STATUS: 200
+
+Tools - Model Context Protocol
+## Documentation Index
+Fetch the complete documentation index at: /llms.txt (https://modelcontextprotocol.io/llms.txt)
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Model Context Protocol home page (https://modelcontextprotocol.io/) Version 2026-07-28 (latest)
+Search...
+⌘ K Ask Assistant ⌘ I
+- Blog (https://blog.modelcontextprotocol.io/)
+- GitHub (https://github.com/modelcontextprotocol)
+- Discord (https://discord.gg/6CSzBmMkjX)
+Search...
+Navigation
+Server Features
+Tools
+Documentation (https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro) Specification (https://modelcontextprotocol.io/specification/2026-07-28) Extensions (https://modelcontextprotocol.io/extensions/overview) Registry (https://modelcontextprotocol.io/registry/about) SEPs (https://modelcontextprotocol.io/seps) Community (https://modelcontextprotocol.io/community/contributing)
+- Specification (https://modelcontextprotocol.io/specification/2026-07-28)
+- Key Changes (https://modelcontextprotocol.io/specification/2026-07-28/changelog)
+- Deprecated Features (https://modelcontextprotocol.io/specification/2026-07-28/deprecated)
+- Architecture (https://modelcontextprotocol.io/specification/2026-07-28/architecture)
+### Base Protocol
+- Overview (https://modelcontextprotocol.io/specification/2026-07-28/basic)
+- Versioning and Compatibility (https://modelcontextprotocol.io/specification/2026-07-28/basic/versioning)
+- Message Patterns
+- Transports
+- Authorization
+### Client Features
+- Roots (https://modelcontextprotocol.io/specification/2026-07-28/client/roots)
+- Sampling (https://modelcontextprotocol.io/specification/2026-07-28/client/sampling)
+- Elicitation (https://modelcontextprotocol.io/specification/2026-07-28/client/elicitation)
+### Server Features
+- Overview (https://modelcontextprotocol.io/specification/2026-07-28/server)
+- Discovery (https://modelcontextprotocol.io/specification/2026-07-28/server/discover)
+- Prompts (https://modelcontextprotocol.io/specification/2026-07-28/server/prompts)
+- Resources (https://modelcontextprotocol.io/specification/2026-07-28/server/resources)
+- Tools (https://modelcontextprotocol.io/specification/2026-07-28/server/tools)
+- Utilities
+- Schema Reference (https://modelcontextprotocol.io/specification/2026-07-28/schema)
+## On this page
+Back to top
+- User Interaction Model
+- Capabilities
+- Protocol Messages
+- Listing Tools
+- Calling Tools
+- Input Required Tool Results
+- List Changed Notification
+- Message Flow
+- Data Types
+- Tool
+- Tool Names
+- x-mcp-header
+- Tool Result
+- Text Content
+- Image Content
+- Audio Content
+- Resource Links
+- Embedded Resources
+- Structured Content
+- Output Schema
+- Schema Examples
+- Tool with default 2020-12 schema:
+- Tool with explicit draft-07 schema:
+- Tool with no parameters:
+- Stateful Tools
+- Error Handling
+- Security Considerations
+Server Features
+# Tools
+Copy page Copy page
+Copy page Copy page
+The Model Context Protocol (MCP) allows servers to expose tools that can be invoked by
+language models. Tools enable models to interact with external systems, such as querying
+databases, calling APIs, or performing computations. Each tool is uniquely identified by
+a name and includes metadata describing its schema.
+For brevity, the request examples on this page omit the _meta request
+metadata ( io.modelcontextprotocol/protocolVersion ,
+io.modelcontextprotocol/clientInfo , and
+io.modelcontextprotocol/clientCapabilities ). Every request MUST include
+the required _meta fields; see
+_meta (https://modelcontextprotocol.io/specification/2026-07-28/basic/index#meta) .
+## ​
+User Interaction Model
+Tools in MCP are designed to be model-controlled , meaning that the language model can
+discover and invoke tools automatically based on its contextual understanding and the
+user’s prompts.
+However, implementations are free to expose tools through any interface pattern that
+suits their needs—the protocol itself does not mandate any specific user
+interaction model.
+For trust & safety and security, there SHOULD always
+be a human in the loop with the ability to deny tool invocations. Applications SHOULD :
+- Provide UI that makes clear which tools are being exposed to the AI model
+- Insert clear visual indicators when tools are invoked
+- Present confirmation prompts to the user for operations, to ensure a human is in the
+loop
+## ​
+Capabilities
+Servers that support tools MUST declare the tools capability:
+{
+"capabilities" : {
+"tools" : {
+"listChanged" : true
+}
+}
+}
+<div class="code-block-fade-overlay print:hidd

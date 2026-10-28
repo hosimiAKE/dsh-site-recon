@@ -1,0 +1,30 @@
+{
+  "name": "dsh-site-recon",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Website deep-reconnaissance framework for DeepSeek Harness: breadth over source roles, depth over an eight-rung claim ladder, and an evidence ledger that refuses unsupported claims.",
+  "license": "MIT",
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./skill": "./skill/SKILL.md"
+  },
+  "files": [
+    "index.js",
+    "lib/*.js",
+    "skill/SKILL.md",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization",
+  "status": 200,
+  "title": "Authorization - Model Context Protocol",
+  "outline": [
+    {
+      "level": 2,
+      "text": "Documentation Index"
+    },
+    {
+      "level": 3,
+      "text": "Base Protocol"
+    },
+    {
+      "level": 3,
+      "text": "Client Features"
+    },
+    {
+      "level": 3,
+      "text": "Server Features"
+    },
+    {
+      "level": 2,
+      "text": "On this page"
+    },
+    {
+      "level": 1,
+      "text": "Authorization"
+    },
+    {
+      "level": 2,
+      "text": "​"
+    },
+    {
+      "level": 3,
+      "text": "​"
+    },
+    {
+      "level": 3,
+      "text": "​"
+    },
+    {
+      "level": 3,
+      "text": "​"
+    },
+    {
+      "level": 2,
+      "text": "​"
+    },
+    {
+      "level": 2,
+      "text": "​"
+    }
+  ],
+  "via": "web-service",
+  "blocked": false,
+  "likelyJs": false,
+  "requestedUrl": "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization",
+  "snapshot": "modelcontextprotocol-io-specification-2026-07-28-9114c4.txt"
+}

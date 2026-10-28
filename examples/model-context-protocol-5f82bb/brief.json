@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "question": "Model Context Protocol 用什么机制解决工具发现、授权与传输？",
+  "goal": "判断是否值得在自己的插件体系里借鉴它的发现与授权模型",
+  "audience": "负责平台插件与工具接入的工程师",
+  "lang": "zh",
+  "createdAt": "2026-10-28T09:18:13.738Z",
+  "breadth": {
+    "roles": [
+      "primary",
+      "docs",
+      "release",
+      "engineering",
+      "thirdparty",
+      "community",
+      "competitor",
+      "data"
+    ],
+    "levels": [
+      "primary",
+      "measured",
+      "independent",
+      "anecdotal"
+    ],
+    "minPerRole": 1
+  },
+  "depth": {
+    "rungs": [
+      "mechanism",
+      "evidence",
+      "preconditions",
+      "alternatives",
+      "counter",
+      "boundary",
+      "consequence",
+      "implication"
+    ]
+  },
+  "subquestions": [
+    {
+      "id": "Q01",
+      "key": "definition",
+      "text": "它是什么——先用对方的语言说清，不要套我们自己的框架\n  → 关于「Model Context Protocol 用什么机制解决工具发现、授权与传输？」",
+      "status": "open"
+    },
+    {
+      "id": "Q02",
+      "key": "mechanism",
+      "text": "它到底怎么运作——机制层面的因果链\n  → 关于「Model Context Protocol 用什么机制解决工具发现、授权与传输？」",
+      "status": "open"
+    },
+    {
+      "id": "Q03",
+      "key": "cost",
+      "text": "代价与门槛——钱、人、时间、迁移成本、锁定\n  → 关于「Model Context Protocol 用什么机制解决工具发现、授权与传输？」",
+      "status": "open"
+    },
+    {
+      "id": "Q04",
+      "key": "limits",
+      "text": "失效条件与反例——什么情况下不成立\n  → 关于「Model Context Protocol 用什么机制解决工具发现、授权与传输？」",
+      "status": "open"
+    },
+    {
+      "id": "Q05",
+      "key": "comparison",
+      "text": "与替代方案的差异基线——和谁比、差在哪\n  → 关于「Model Context Protocol 用什么机制解决工具发现、授权与传输？」",
+      "status": "open"
+    },
+    {
+      "id": "Q06",
+      "key": "implication",
+      "text": "对我们处境的含义——该做什么、先验证什么\n  → 关于「Model Context Protocol 用什么机制解决工具发现、授权与传输？」",
+      "status": "open"
+    }
+  ],
+  "budget": {
+    "pages": 10,
+    "searches": 6
+  },
+  "counters": {
+    "fetches": 5,
+    "searches": 3
+  }
+}

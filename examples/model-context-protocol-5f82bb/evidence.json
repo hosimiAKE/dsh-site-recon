@@ -1,0 +1,111 @@
+{
+  "nextId": 8,
+  "items": [
+    {
+      "id": "E01",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/discover",
+      "sourceId": "S25",
+      "quote": "server/discover lets a client query a server’s supported protocol versions, capabilities, and identity before sending any other requests. Servers MUST implement it.",
+      "locator": "H1 Discovery, first paragraph",
+      "strength": "primary",
+      "verified": true,
+      "contests": null,
+      "claimIds": [
+        "C01"
+      ],
+      "snapshot": "pages\\modelcontextprotocol-io-specification-2026-07-28-81630c.txt",
+      "recordedAt": "2026-10-28T09:19:27.852Z"
+    },
+    {
+      "id": "E02",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
+      "sourceId": "S01",
+      "quote": "Make MCP stateless: remove the initialize / notifications/initialized handshake. Every request now carries its protocol version and client capabilities in _meta",
+      "locator": "H2 Major changes, second bullet",
+      "strength": "primary",
+      "verified": true,
+      "contests": null,
+      "claimIds": [
+        "C01",
+        "C03"
+      ],
+      "snapshot": "pages\\modelcontextprotocol-io-specification-2026-07-28-f6b516.txt",
+      "recordedAt": "2026-10-28T09:19:30.874Z"
+    },
+    {
+      "id": "E03",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization",
+      "sourceId": "S26",
+      "quote": "Authorization is OPTIONAL for MCP implementations.",
+      "locator": "H3 Protocol Requirements, first line",
+      "strength": "primary",
+      "verified": true,
+      "contests": null,
+      "claimIds": [
+        "C02"
+      ],
+      "snapshot": "pages\\modelcontextprotocol-io-specification-2026-07-28-9114c4.txt",
+      "recordedAt": "2026-10-28T09:19:30.884Z"
+    },
+    {
+      "id": "E04",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization",
+      "sourceId": "S26",
+      "quote": "The Model Context Protocol provides authorization capabilities at the transport level, enabling MCP clients to make requests to restricted MCP servers on behalf of resource owners.",
+      "locator": "H3 Purpose and Scope, first paragraph",
+      "strength": "primary",
+      "verified": true,
+      "contests": null,
+      "claimIds": [
+        "C02"
+      ],
+      "snapshot": "pages\\modelcontextprotocol-io-specification-2026-07-28-9114c4.txt",
+      "recordedAt": "2026-10-28T09:19:33.504Z"
+    },
+    {
+      "id": "E05",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools",
+      "sourceId": "S27",
+      "quote": "For trust & safety and security, there SHOULD always be a human in the loop with the ability to deny tool invocations.",
+      "locator": "H2 User Interaction Model, security paragraph",
+      "strength": "primary",
+      "verified": true,
+      "contests": null,
+      "claimIds": [
+        "C04"
+      ],
+      "snapshot": "pages\\modelcontextprotocol-io-specification-2026-07-28-f28b1f.txt",
+      "recordedAt": "2026-10-28T09:19:33.514Z"
+    },
+    {
+      "id": "E06",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
+      "sourceId": "S01",
+      "quote": "Servers that need cross-call state use explicit, server-minted handles passed as ordinary tool arguments",
+      "locator": "H2 Major changes, first bullet",
+      "strength": "primary",
+      "verified": true,
+      "contests": null,
+      "claimIds": [
+        "C03"
+      ],
+      "snapshot": "pages\\modelcontextprotocol-io-specification-2026-07-28-f6b516.txt",
+      "recordedAt": "2026-10-28T09:19:37.251Z"
+    },
+    {
+      "id": "E07",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization",
+      "sourceId": "S26",
+      "quote": "Implementations using an STDIO transport SHOULD NOT follow this specification, and instead retrieve credentials from the environment.",
+      "locator": "H3 Protocol Requirements, STDIO bullet",
+      "strength": "primary",
+      "verified": true,
+      "contests": null,
+      "claimIds": [
+        "C02"
+      ],
+      "snapshot": "pages\\modelcontextprotocol-io-specification-2026-07-28-9114c4.txt",
+      "recordedAt": "2026-10-28T09:19:41.498Z"
+    }
+  ]
+}

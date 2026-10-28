@@ -1,0 +1,77 @@
+{
+  "nextId": 5,
+  "items": [
+    {
+      "id": "C01",
+      "text": "MCP 把\"发现\"从可选握手变成了一条强制的前置 RPC：server/discover 由服务端必须实现，客户端因此在发任何业务请求之前就能确定版本与能力。",
+      "parent": "Q02",
+      "evidence": [
+        "E01",
+        "E02"
+      ],
+      "probe": {
+        "answers": {
+          "mechanism": "客户端在发 tools/list 或 tools/call 之前先发 server/discover；服务端返回 supportedVersions、capabilities 与 identity，客户端据此选定协议版本，之后每个请求都在 _meta 里重复声明版本与能力。",
+          "evidence": "两条一手规范：E01 明确 Servers MUST implement it；E02 说明 initialize 握手被删除、每次请求自带协议版本与客户端能力。",
+          "preconditions": "服务端必须实现该 RPC 并在响应里列出 supportedVersions；客户端必须先调用它再发业务请求。版本不匹配时规范要求返回 UnsupportedProtocolVersionError。",
+          "alternatives": "另一种解释是这只是把 initialize 改了个名字。但 changelog 同时删除了 initialize 与 notifications/initialized 握手，并把版本/能力搬进每个请求的 _meta，说明是去状态化而不是重命名。",
+          "counter": "若服务端只支持单一版本、客户端也只用该版本，discover 的收益接近于零——此时它更像兼容性探针。规范本身也承认可用它做 backward-compatibility probe。",
+          "boundary": "对 STDIO 传输，discover 的定位是向后兼容探测；在版本已由部署约定的私有环境里，前置发现的价值显著下降。",
+          "consequence": "发现前置后，网关与注册表可以据此自动生成能力清单，接入方不必读文档猜能力；反过来，任何不实现 discover 的服务端都会被判为不合规。",
+          "implication": "自建插件体系若要统一的工具发现，应把能力声明做成可探测的强制端点并允许缓存，而不是靠文档约定；先验证现有工具注册表能否承担这个角色。"
+        },
+        "updatedAt": "2026-10-28T09:19:53.333Z"
+      },
+      "note": "",
+      "createdAt": "2026-10-28T09:19:37.264Z"
+    },
+    {
+      "id": "C02",
+      "text": "授权在 MCP 里是可选层而不是准入门槛：规范只把 OAuth 2.1 的一个子集绑在 HTTP 传输上，STDIO 传输被明确排除、凭据改由环境提供。",
+      "parent": "Q03",
+      "evidence": [
+        "E03",
+        "E04",
+        "E07"
+      ],
+      "probe": {
+        "answers": {}
+      },
+      "note": "",
+      "createdAt": "2026-10-28T09:19:41.511Z"
+    },
+    {
+      "id": "C03",
+      "text": "这次修订用\"无状态\"换可扩展性：去掉会话与初始化握手，每次请求自带版本与能力，跨调用状态改为由服务端自造句柄当普通参数传。",
+      "parent": "Q02",
+      "evidence": [
+        "E02",
+        "E06"
+      ],
+      "probe": {
+        "answers": {}
+      },
+      "note": "",
+      "createdAt": "2026-10-28T09:19:46.866Z"
+    },
+    {
+      "id": "C04",
+      "text": "工具由模型自主发现与调用，而协议只用 SHOULD 要求\"人在环可拒绝\"，因此治理强度实际由实现方决定，不是协议保证。",
+      "parent": "Q04",
+      "evidence": [
+        "E05"
+      ],
+      "probe": {
+        "answers": {
+          "mechanism": "协议把工具定义为 model-controlled：模型根据上下文与用户提示自行发现并调用；规范只要求实现方 SHOULD 提供可见 UI、调用提示与确认框，没有定义任何强制授权流。",
+          "counter": "规范把授权单独放在 HTTP 传输层，说明它并不认为治理不存在——只是把治理从协议语义挪到了传输与会话层，因此说“协议不管治理”并不完全成立。",
+          "boundary": "这条判断只覆盖协议文本本身；一旦实现方在客户端强制确认或加策略引擎，实际治理强度可以远高于 SHOULD，因此不能由协议条款反推部署风险。",
+          "implication": "如果我们要接入外部 MCP 服务器，不能假设协议提供了治理，必须在客户端或网关侧自己实现工具白名单与二次确认；先做一次真实的工具调用拦截验证。"
+        },
+        "updatedAt": "2026-10-28T09:19:56.824Z"
+      },
+      "note": "",
+      "createdAt": "2026-10-28T09:19:46.878Z"
+    }
+  ]
+}

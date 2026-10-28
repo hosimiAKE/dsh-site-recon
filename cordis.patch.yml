@@ -1,0 +1,6 @@
+# Adds the website deep-reconnaissance framework to this profile.
+# The plugin registers its tools plus the `site-recon` skill; no other row is required.
+- insert:
+    - id: site-recon
+      name: 'dsh-site-recon'
+      config: {}

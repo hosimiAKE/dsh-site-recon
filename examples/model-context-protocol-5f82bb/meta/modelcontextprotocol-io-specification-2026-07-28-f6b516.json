@@ -1,0 +1,56 @@
+{
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
+  "status": 200,
+  "title": "Key Changes - Model Context Protocol",
+  "outline": [
+    {
+      "level": 2,
+      "text": "Documentation Index"
+    },
+    {
+      "level": 3,
+      "text": "Base Protocol"
+    },
+    {
+      "level": 3,
+      "text": "Client Features"
+    },
+    {
+      "level": 3,
+      "text": "Server Features"
+    },
+    {
+      "level": 2,
+      "text": "On this page"
+    },
+    {
+      "level": 1,
+      "text": "Key Changes"
+    },
+    {
+      "level": 2,
+      "text": "​"
+    },
+    {
+      "level": 2,
+      "text": "​"
+    },
+    {
+      "level": 2,
+      "text": "​"
+    },
+    {
+      "level": 2,
+      "text": "​"
+    },
+    {
+      "level": 2,
+      "text": "​<div class=\"size-6 rounded-md flex items-center justify-center shadow-xs text-gray-400 dark:text-white/50 dark:"
+    }
+  ],
+  "via": "web-service",
+  "blocked": false,
+  "likelyJs": false,
+  "requestedUrl": "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
+  "snapshot": "modelcontextprotocol-io-specification-2026-07-28-f6b516.txt"
+}

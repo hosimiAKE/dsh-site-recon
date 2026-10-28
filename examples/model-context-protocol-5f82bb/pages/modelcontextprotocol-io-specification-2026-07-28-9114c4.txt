@@ -1,0 +1,128 @@
+URL: https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization
+TITLE: Authorization - Model Context Protocol
+FETCHED: 2026-10-28T09:18:51.124Z
+STATUS: 200
+
+Authorization - Model Context Protocol
+## Documentation Index
+Fetch the complete documentation index at: /llms.txt (https://modelcontextprotocol.io/llms.txt)
+Use this file to discover all available pages before exploring further.
+Skip to main content
+Model Context Protocol home page (https://modelcontextprotocol.io/) Version 2026-07-28 (latest)
+Search...
+⌘ K Ask Assistant ⌘ I
+- Blog (https://blog.modelcontextprotocol.io/)
+- GitHub (https://github.com/modelcontextprotocol)
+- Discord (https://discord.gg/6CSzBmMkjX)
+Search...
+Navigation
+Authorization
+Authorization
+Documentation (https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro) Specification (https://modelcontextprotocol.io/specification/2026-07-28) Extensions (https://modelcontextprotocol.io/extensions/overview) Registry (https://modelcontextprotocol.io/registry/about) SEPs (https://modelcontextprotocol.io/seps) Community (https://modelcontextprotocol.io/community/contributing)
+- Specification (https://modelcontextprotocol.io/specification/2026-07-28)
+- Key Changes (https://modelcontextprotocol.io/specification/2026-07-28/changelog)
+- Deprecated Features (https://modelcontextprotocol.io/specification/2026-07-28/deprecated)
+- Architecture (https://modelcontextprotocol.io/specification/2026-07-28/architecture)
+### Base Protocol
+- Overview (https://modelcontextprotocol.io/specification/2026-07-28/basic)
+- Versioning and Compatibility (https://modelcontextprotocol.io/specification/2026-07-28/basic/versioning)
+- Message Patterns
+- Transports
+- Authorization
+- Overview (https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization)
+- Authorization Server Discovery (https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/authorization-server-discovery)
+- Client Registration (https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/client-registration)
+- Security Considerations (https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/security-considerations)
+### Client Features
+- Roots (https://modelcontextprotocol.io/specification/2026-07-28/client/roots)
+- Sampling (https://modelcontextprotocol.io/specification/2026-07-28/client/sampling)
+- Elicitation (https://modelcontextprotocol.io/specification/2026-07-28/client/elicitation)
+### Server Features
+- Overview (https://modelcontextprotocol.io/specification/2026-07-28/server)
+- Discovery (https://modelcontextprotocol.io/specification/2026-07-28/server/discover)
+- Prompts (https://modelcontextprotocol.io/specification/2026-07-28/server/prompts)
+- Resources (https://modelcontextprotocol.io/specification/2026-07-28/server/resources)
+- Tools (https://modelcontextprotocol.io/specification/2026-07-28/server/tools)
+- Utilities
+- Schema Reference (https://modelcontextprotocol.io/specification/2026-07-28/schema)
+## On this page
+Back to top
+- Introduction
+- Purpose and Scope
+- Protocol Requirements
+- Standards Compliance
+- Roles
+- Overview
+- Authorization Server Discovery
+- Client Registration
+- Scope Selection Strategy
+- Authorization Flow Steps
+- Authorization Response Validation
+- Resource Parameter Implementation
+- Canonical Server URI
+- Access Token Usage
+- Token Requirements
+- Token Handling
+- Refresh Tokens
+- Error Handling
+- Scope Challenge Handling
+- Runtime Insufficient Scope Errors
+- Step-Up Authorization Flow
+- Security Considerations
+- MCP Authorization Extensions
+Authorization
+# Authorization
+Copy page Copy page
+Copy page Copy page
+## ​
+Introduction
+### ​
+Purpose and Scope
+The Model Context Protocol provides authorization capabilities at the transport level,
+enabling MCP clients to make requests to restricted MCP servers on behalf of resource
+owners. This specification defines the authorization flow for HTTP-based transports.
+### ​
+Protocol Requirements
+Authorization is OPTIONAL for MCP implementations. When supported:
+- Implementations using an HTTP-based transport SHOULD conform to this specification.
+- Implementations using an STDIO transport SHOULD NOT follow this specification, and
+instead retrieve credentials from the environment.
+- Implementations using alternative transports MUST follow established security best
+practices for their protocol.
+### ​
+Standards Compliance
+This authorization mechanism is based on established specifications listed below, but
+implements a selected subset of their features to ensure security and interoperability
+while maintaining simplicity:
+- OAuth 2.1 IETF DRAFT ( draft-ietf-oauth-v2-1-13 (https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-13) )
+- OAuth 2.0 Bearer Token Usage
+( RFC6750 (https://datatracker.ietf.org/doc/html/rfc6750) )
+- OAuth 2.0 Authorization Server Metadata
+( RFC8414 (https://datatracker.ietf.org/doc/html/rfc8414) )
+- OAuth 2.0 Dynamic Client Registration Protocol
+( RFC7591 (https://datatracker.ietf.org/doc/html/rfc7591) )
+- Resource Indicators for OAuth 2.0
+( RFC8707 (https://www.rfc-editor.org/rfc/rfc8707.html) )
+- OAuth 2.0 Protected Resource Metadata ( RFC9728 (https://datatracker.ietf.org/doc/html/rfc9728) )
+- OAuth 2.0 Authorization Server Issuer Identification ( RFC9207 (https://datatracker.ietf.org/doc/html/rfc9207) )
+- OAuth Client ID Metadata Documents ( draft-ietf-oauth-client-id-metadata-document-00 (https://datatracker.ietf.org/doc/html/draft-ietf-oauth-client-id-metadata-document-00) )
+- OpenID Connect Discovery 1.0 (https://openid.net/specs/openid-connect-discovery-1_0.html)
+- OpenID Connect Dynamic Client Registration 1.0 ( OpenID Connect Registration (https://openid.net/specs/openid-connect-registration-1_0.html) )
+## ​
+Roles
+A protected MCP server acts as an OAuth 2.1 resource server (https://www.ietf.org/archive/id/draft-ietf-oauth-v2-1-13.html#name-roles) ,
+capable of accepting and responding to protected resource requests using access tokens.
+An MCP client acts as an OAuth 2.1 client (https://www.ietf.org/archive/id/draft-ietf-oauth-v2-1-13.html#name-roles) ,
+making protected resource requests on behalf of a resource owner.
+The authorization server is responsible for interacting with the user (if necessary) and issuing access tokens for use at the MCP server.
+The implementation details of the authorization server are beyond the scope of this specification. It may be hosted with the
+resource server or a separate entity. Authorization Server Discovery (https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/authorization-server-discovery)
+specifies how an MCP server indicates the location of its corresponding authorization server to a client.
+## ​
+Overview
+-
+Authorization servers MUST implement OAuth 2.1 with appropriate security
+measures for both confidential and public clients.
+-
+Authorization servers and MCP clients SHOULD support OAuth Client ID Metadata Documents (https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/client-registration#client-id-metadata-documents)
+(<a
